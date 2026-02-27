@@ -108,8 +108,8 @@ ATS-Latest/
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ATS-Latest.git
-cd ATS-Latest
+git clone https://github.com/AryaJagtap/ATS.ai.git
+cd ATS.ai
 ```
 
 ---
@@ -198,72 +198,6 @@ Open **http://localhost:3000** in your browser.
 4. Click **🚀 Start Analysis** and watch real-time progress
 5. Review results in the interactive table (click ▶ to expand details)
 6. Click **📥 Download Excel Report** for the styled report
-
----
-
-## 🌐 Deployment Guide (Production)
-
-### Step 9: Push to GitHub
-
-```bash
-cd ATS-Latest
-git init
-git add .
-git commit -m "ATS.ai v2.0 — Production release"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/ATS-Latest.git
-git push -u origin main
-```
-
----
-
-### Step 10: Deploy Backend on Render
-
-1. Go to [render.com](https://render.com) → **New +** → **Web Service**
-2. Connect your **GitHub repository**
-3. Configure:
-   - **Name**: `ats-backend`
-   - **Root Directory**: `backend`
-   - **Runtime**: `Docker`
-   - **Instance Type**: Free (or Starter for better performance)
-4. Add **Environment Variables**:
-   - `OPENAI_API_KEY` = your OpenAI key
-   - `GEMINI_API_KEY` = your Gemini key
-   - `ALLOWED_ORIGINS` = `https://your-app.vercel.app` (update after Step 11)
-5. Click **Create Web Service** → wait ~3-5 minutes
-6. Copy your backend URL (e.g., `https://ats-backend-xxxx.onrender.com`)
-
----
-
-### Step 11: Deploy Frontend on Vercel
-
-1. Go to [vercel.com](https://vercel.com) → **Add New** → **Project**
-2. **Import** your GitHub repository
-3. Configure:
-   - **Framework Preset**: Next.js (auto-detected)
-   - **Root Directory**: `frontend`
-4. Add **Environment Variable**:
-   - `NEXT_PUBLIC_API_URL` = `https://ats-backend-xxxx.onrender.com` (your Render URL)
-5. Click **Deploy** → wait ~1-2 minutes
-
----
-
-### Step 12: Update Render CORS
-
-Go to Render dashboard → ats-backend → Environment → Update:
-- `ALLOWED_ORIGINS` = `https://your-app.vercel.app`
-
-Redeploy the backend.
-
----
-
-### Step 13: Done! 🎉
-
-Your ATS platform is now live:
-- **Frontend**: `https://your-app.vercel.app`
-- **Backend**: `https://ats-backend-xxxx.onrender.com`
-
-> **Note**: Render free tier services spin down after 15 minutes of inactivity. The first request after idle may take ~30 seconds to cold start. For production use, consider Render's Starter plan ($7/month) to avoid cold starts.
 
 ---
 
